@@ -30,7 +30,7 @@
 
     'assets': {
         'web.assets_backend': [
-            'direct_print_report/static/src/js/direct_print_handler.js',
+            'micra_direct_print/static/src/js/direct_print_handler.js',
         ],
     },
 
