@@ -6,7 +6,7 @@ class ResConfigSettings(models.TransientModel):
 
     direct_print_enabled = fields.Boolean(
         string="Direct Print",
-        config_parameter="direct_print_report.direct_print_enabled",
+        config_parameter="micra_direct_print.direct_print_enabled",
         help="All Reports Of Direct Print Automated"
     )
 

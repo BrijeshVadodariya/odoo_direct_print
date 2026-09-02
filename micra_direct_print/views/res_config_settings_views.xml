@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
-                <app data-string="Direct Print" string="Direct Print" name="direct_print_report" logo="/direct_print_report/static/description/icon.png">
+                <app data-string="Direct Print" string="Direct Print" name="micra_direct_print" logo="/micra_direct_print/static/description/icon.png">
                     <block title="Direct Print Configuration" name="direct_print_configuration">
                         <setting id="direct_print_setting" help="All Reports Of Direct Print Automated">
                             <field name="direct_print_enabled"/>
