@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Direct Print Report - Skip the Download, Print Instantly - Odoo 17/18/19</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body style="margin:0; padding:0; background-color:#ffffff; font-family:'Segoe UI', Arial, sans-serif; color:#1f1f1f;">
+    <div class="container py-4 py-lg-5" style="max-width:1320px;">
+
+        <!-- MAIN HEADER -->
+        <section class="mb-4 mb-lg-5"
+            style="border:1px solid #e2dcf3; border-radius:28px; padding:36px 24px; background:linear-gradient(180deg,#ffffff 0%,#faf9ff 100%); box-shadow:0 14px 35px rgba(113,75,178,0.07);">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <div
+                        style="display:inline-block; background-color:#f2eefb; color:#714bb2; border:1px solid #e2dcf3; border-radius:50px; padding:8px 14px; font-size:13px; font-weight:700; letter-spacing:0.4px; margin-bottom:18px;">
+                        MICRA DIGITAL
+                    </div>
+                    <h1
+                        style="margin:0 0 16px 0; font-size:35px; line-height:1.15; font-weight:550; color:#111111; font-family:'Kalam', cursive;">
+                        <span
+                            style="display:inline-block; padding:0 5px 3px 5px; margin-right:4px; border-bottom:5px solid #714bb2;">Direct</span>
+                        <span
+                            style="display:inline-block; padding:0 5px 3px 5px; margin-right:4px; border-bottom:5px solid #36C5F0;">Print</span>
+                        <span style="display:inline-block; padding:0 5px 3px 5px; border-bottom:5px solid #2EB67D;">Report</span>
+                    </h1>
+                    <p style="margin:0; font-size:17px; line-height:1.9; color:#666666;">
+                        Skip the download. Click <b>Print</b> on any report and Odoo opens your browser's print
+                        dialog straight away &mdash; no PDF saved to disk, no extra tab, no "open the download and
+                        print it" dance. Pick which reports use it, toggle it globally, and let your team print the
+                        way they already expect to.
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <div style="padding:22px; text-align:center;">
+                        <div
+                            style="width:78px; height:78px; line-height:78px; margin:0 auto 45px 120px; color:#714bb2; font-size:56px; font-weight:700;">
+                            <img alt="Icon" src="icon.png" style="width:160%; height:160%; object-fit:contain;">
+                        </div>
+                        <h3 style="margin:0 0 8px 0; font-size:22px; font-weight:700; color:#1f1f1f;">
+                            Print Button Means Print
+                        </h3>
+                        <p style="margin:0 0 16px 0; font-size:15px; line-height:1.8; color:#666666;">
+                            One click, one print dialog &mdash; works on Odoo 17, 18 &amp; 19.
+                        </p>
+                        <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:8px;">
+                            <span
+                                style="background:#f2eefb; border:1px solid #e2dcf3; color:#714bb2; border-radius:20px; padding:5px 12px; font-size:12px; font-weight:700;">
+                                <i class="fa fa-print" style="margin-right:5px;"></i>Zero-Click Print
+                            </span>
+                            <span
+                                style="background:#f2eefb; border:1px solid #e2dcf3; color:#714bb2; border-radius:20px; padding:5px 12px; font-size:12px; font-weight:700;">
+                                <i class="fa fa-toggle-on" style="margin-right:5px;"></i>Per-Report Control
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOP CENTER TABS -->
+        <section class="mb-5" style="margin-bottom:3.5rem !important;">
+            <ul class="nav nav-tabs justify-content-center align-items-end border-0" role="tablist"
+                style="text-align:center; gap:0; border-bottom:1px solid #dfe7eb; --bs-nav-tabs-border-width:1px; --bs-nav-tabs-border-color:#dfe7eb; --bs-nav-tabs-border-radius:18px; --bs-nav-tabs-link-hover-border-color:#dfe7eb #dfe7eb #dfe7eb; --bs-nav-tabs-link-active-color:#714bb2; --bs-nav-tabs-link-active-bg:#ffffff; --bs-nav-tabs-link-active-border-color:#dfe7eb #dfe7eb #ffffff; --bs-nav-link-color:#5b9ab0; --bs-nav-link-hover-color:#714bb2;">
+                <li class="nav-item" role="presentation" style="margin:0 0 -1px 0;">
+                    <a class="nav-link active" id="overview-tab" data-bs-toggle="tab" href="#overview-pane" role="tab"
+                        aria-controls="overview-pane" aria-selected="true"
+                        style="min-width:190px; font-size:17px; font-weight:700; padding:16px 34px; border-radius:18px 18px 0 0; margin:0;">
+                        Description
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation" style="margin:0 0 -1px 8px;">
+                    <a class="nav-link" id="screenshot-tab" data-bs-toggle="tab" href="#screenshot-pane" role="tab"
+                        aria-controls="screenshot-pane" aria-selected="false"
+                        style="min-width:190px; font-size:17px; font-weight:700; padding:16px 34px; border-radius:18px 18px 0 0; margin:0;">
+                        Screenshots
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="tab-content">
+            <!-- OVERVIEW TAB -->
+            <div aria-labelledby="overview-tab" class="tab-pane fade show active" id="overview-pane" role="tabpanel">
+
+                <section class="mb-5">
+                    <div class="text-center mb-4">
+                        <h2
+                            style="margin:0 0 12px 0; font-size:36px; line-height:1; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 8px 7px 8px; margin-right:4px; border-bottom:2.5px solid #43d5cf;">
+                                Contact
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 8px 7px 8px; margin-right:4px; border-bottom:2.5px solid #ffba2f;">
+                                Our
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 8px 7px 8px; border-bottom:2.5px solid #f79ac0;">
+                                Team
+                            </span>
+                        </h2>
+                        <p style="margin:0 auto; max-width:760px; font-size:16px; line-height:1.9; color:#666666;">
+                            Contact Micra Digital instantly through WhatsApp, Email, or Phone.
+                        </p>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <!-- WHATSAPP CARD -->
+                        <div class="col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #f3e5f5; border-radius:22px; padding:32px 28px; background:#ffffff; box-shadow:0 8px 22px rgba(0,0,0,0.04); text-align:center;">
+                                <div style="font-size:54px; color:#25D366; margin-bottom:18px;">
+                                    <i class="fa fa-whatsapp"></i>
+                                </div>
+                                <div style="max-width:260px; margin:0 auto 22px auto;">
+                                    <img alt="WhatsApp QR" src="wha.png"
+                                        style="width:100%; height:auto; border-radius:16px;">
+                                </div>
+                                <a href="#"
+                                    style="display:inline-block; text-decoration:none; color:#ffffff; background:#25D366; padding:12px 26px; border-radius:30px; font-size:15px; font-weight:700;">
+                                    <i class="fa fa-whatsapp" style="margin-right:6px;"></i>
+                                    Open WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                        <!-- EMAIL CARD -->
+                        <div class="col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #ffe6e6; border-radius:22px; padding:32px 28px; background:#ffffff; box-shadow:0 8px 22px rgba(0,0,0,0.04); text-align:center;">
+                                <div style="font-size:50px; color:#EA4335; margin-bottom:18px;">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div style="max-width:260px; margin:0 auto 22px auto;">
+                                    <img alt="Email QR" src="Email.png"
+                                        style="width:100%; height:auto; border-radius:16px;">
+                                </div>
+                                <a href="mailto:hello@micra.digital"
+                                    style="display:inline-block; text-decoration:none; color:#ffffff; background:#EA4335; padding:12px 26px; border-radius:30px; font-size:15px; font-weight:700;">
+                                    <i class="fa fa-envelope" style="margin-right:6px;"></i>
+                                    Send Mail
+                                </a>
+                            </div>
+                        </div>
+                        <!-- PHONE CARD -->
+                        <div class="col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e3ecff; border-radius:22px; padding:32px 28px; background:#ffffff; box-shadow:0 8px 22px rgba(0,0,0,0.04); text-align:center;">
+                                <div style="font-size:52px; color:#0d6efd; margin-bottom:18px;">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div style="max-width:260px; margin:0 auto 22px auto;">
+                                    <img alt="Phone QR" src="call.png"
+                                        style="width:100%; height:auto; border-radius:16px;">
+                                </div>
+                                <a href="tel:+911234567890"
+                                    style="display:inline-block; text-decoration:none; color:#ffffff; background:#0d6efd; padding:12px 26px; border-radius:30px; font-size:15px; font-weight:700;">
+                                    <i class="fa fa-phone" style="margin-right:6px;"></i>
+                                    Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INTRO SECTION -->
+                <section class="mb-5">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-7">
+                            <h2
+                                style="margin:0 0 12px 0; font-size:36px; line-height:1.1; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                                <span
+                                    style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:2.5px solid #714bb2;">Why</span>
+                                <span
+                                    style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:2.5px solid #36C5F0;">Direct</span>
+                                <span
+                                    style="display:inline-block; padding:0 10px 7px 10px; border-bottom:2.5px solid #2EB67D;">Print?</span>
+                            </h2>
+                            <p style="margin:0 0 14px 0; font-size:16px; line-height:1.9; color:#666666;">
+                                Odoo's standard flow for a PDF report is: click Print &rarr; a PDF downloads to your
+                                browser's downloads folder &rarr; open it &rarr; print it. For a warehouse packer
+                                printing delivery slips all day, a cashier printing invoices, or a receptionist
+                                printing visitor badges, that's three extra clicks and a cluttered downloads folder
+                                for every single document.
+                            </p>
+                            <p style="margin:0; font-size:16px; line-height:1.9; color:#666666;">
+                                Direct Print Report removes the download step entirely. When a report is marked as
+                                Direct Print, Odoo renders it as HTML in a hidden frame and calls the browser's
+                                native print dialog automatically &mdash; the same dialog you'd get from
+                                <code>Ctrl+P</code>. No PDF file is generated or saved, and the user picks their
+                                printer and hits Print like they would for any web page.
+                            </p>
+                        </div>
+                        <div class="col-lg-5">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:22px; padding:26px; text-align:center; background-color:#faf9ff; box-shadow:0 10px 28px rgba(113,75,178,0.06);">
+                                <div style="margin:0 auto 16px auto; font-size:46px; color:#714bb2;">
+                                    <i class="fa fa-print"></i>
+                                </div>
+                                <h4 style="margin:0 0 8px 0; font-size:22px; font-weight:700; color:#1f1f1f;">
+                                    Old Flow vs. Direct Print
+                                </h4>
+                                <p style="margin:0 0 16px 0; font-size:15px; line-height:1.8; color:#666666;">
+                                    <s>Print &rarr; Download &rarr; Open &rarr; Print</s><br>
+                                    becomes<br>
+                                    <b>Print &rarr; Print Dialog Opens</b>
+                                </p>
+                                <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:8px;">
+                                    <span
+                                        style="background:#f2eefb; border:1px solid #e2dcf3; color:#714bb2; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700;">
+                                        <i class="fa fa-bolt" style="margin-right:5px;"></i>Instant
+                                    </span>
+                                    <span
+                                        style="background:#f2eefb; border:1px solid #e2dcf3; color:#714bb2; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700;">
+                                        <i class="fa fa-folder-o" style="margin-right:5px;"></i>No Clutter
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HIGHLIGHT SECTION -->
+                <section class="mb-5">
+                    <div class="row g-4">
+                        <!-- CARD 1 -->
+                        <div class="col-md-6">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:24px; padding:32px 24px; background:linear-gradient(180deg,#faf9ff 0%,#ffffff 100%); box-shadow:0 10px 24px rgba(113,75,178,0.06); text-align:center;">
+                                <div style="margin:0 auto 14px auto; font-size:40px; color:#714bb2;">
+                                    <i class="fa fa-sliders"></i>
+                                </div>
+                                <h2
+                                    style="margin:0 0 12px 0; font-size:26px; line-height:1.25; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                                    <span
+                                        style="display:inline-block; padding:0 8px 6px 8px; margin-right:4px; border-bottom:2.5px solid #714bb2;">Per-Report</span>
+                                    <span
+                                        style="display:inline-block; padding:0 8px 6px 8px; border-bottom:2.5px solid #2EB67D;">Control</span>
+                                </h2>
+                                <p style="margin:0 auto 20px auto; font-size:15px; line-height:1.9; color:#666666;">
+                                    A new <b>Direct Print</b> checkbox is added right on every report action, under
+                                    Settings &rarr; Technical &rarr; Reports. Turn it on for delivery slips and
+                                    invoices, leave it off for reports your team still wants to save as PDF &mdash;
+                                    it's your call, per report.
+                                </p>
+                                <div
+                                    style="display:inline-block; background:#f2eefb; color:#714bb2; border:1px solid #e2dcf3; border-radius:50px; padding:10px 18px; font-size:13px; font-weight:700;">
+                                    <i class="fa fa-check-square-o" style="margin-right:8px;"></i>
+                                    One Checkbox, Full Control
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CARD 2 -->
+                        <div class="col-md-6">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:24px; padding:32px 24px; background:linear-gradient(180deg,#faf9ff 0%,#ffffff 100%); box-shadow:0 10px 24px rgba(113,75,178,0.06); text-align:center;">
+                                <div style="margin:0 auto 14px auto; font-size:40px; color:#714bb2;">
+                                    <i class="fa fa-toggle-on"></i>
+                                </div>
+                                <h2
+                                    style="margin:0 0 12px 0; font-size:26px; line-height:1.25; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                                    <span
+                                        style="display:inline-block; padding:0 8px 6px 8px; margin-right:4px; border-bottom:2.5px solid #714bb2;">Global</span>
+                                    <span
+                                        style="display:inline-block; padding:0 8px 6px 8px; border-bottom:2.5px solid #36C5F0;">Switch</span>
+                                </h2>
+                                <p style="margin:0 auto 20px auto; font-size:15px; line-height:1.9; color:#666666;">
+                                    Prefer an all-or-nothing rollout? Flip one toggle in
+                                    Settings &rarr; General Settings &rarr; Direct Print and every report in the
+                                    system switches at once &mdash; new reports installed later pick up the same
+                                    default automatically.
+                                </p>
+                                <div
+                                    style="display:inline-block; background:#f2eefb; color:#714bb2; border:1px solid #e2dcf3; border-radius:50px; padding:10px 18px; font-size:13px; font-weight:700;">
+                                    <i class="fa fa-cogs" style="margin-right:8px;"></i>
+                                    One Setting, Every Report
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HOW IT WORKS -->
+                <section class="mb-5">
+                    <div class="text-center mb-4">
+                        <h2
+                            style="margin:0 0 10px 0; font-size:36px; line-height:1.2; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:2.5px solid #43d5cf;">
+                                How
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:2.5px solid #ffb733;">
+                                It
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; border-bottom:2.5px solid #f79ac0;">
+                                Works
+                            </span>
+                        </h2>
+                        <p style="margin:0; font-size:16px; line-height:1.8; color:#666666;">
+                            Three steps from install to your first instant print.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:28px 24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.06); text-align:center;">
+                                <div style="font-size:34px; color:#714bb2; margin-bottom:14px;">
+                                    <i class="fa fa-download"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">1.
+                                    Install &amp; Choose a Default</h4>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    Install the module. Every report is Direct Print–enabled by default, or turn the
+                                    global switch off in Settings if you'd rather opt reports in one at a time.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:28px 24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.06); text-align:center;">
+                                <div style="font-size:34px; color:#714bb2; margin-bottom:14px;">
+                                    <i class="fa fa-wrench"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">2. Fine-Tune
+                                    Per Report</h4>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    Open Settings &rarr; Technical &rarr; Reports, pick any report, and tick or
+                                    untick its own Direct Print field to override the global default.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:28px 24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.06); text-align:center;">
+                                <div style="font-size:34px; color:#714bb2; margin-bottom:14px;">
+                                    <i class="fa fa-print"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">3. Click
+                                    Print, Get the Dialog</h4>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    From any invoice, delivery, or document, click the normal Print button. No PDF
+                                    is downloaded &mdash; the browser's print dialog opens right away.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FEATURES -->
+                <section class="mb-5">
+                    <div class="text-center mb-4">
+                        <h2
+                            style="margin:0 0 10px 0; font-size:36px; line-height:1.42; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:2.5px solid #714bb2;">
+                                App
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:2.5px solid #2EB67D;">
+                                Key
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; border-bottom:2.5px solid #36C5F0;">
+                                Features
+                            </span>
+                        </h2>
+                        <p style="margin:0; font-size:16px; line-height:1.8; color:#666666;">
+                            Small, focused, and safe to run alongside your existing report setup.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.1);">
+                                <div style="font-size:28px; color:#714bb2; margin-bottom:14px;">
+                                    <i class="fa fa-print"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">
+                                    Native Browser Print
+                                </h4>
+                                <p style="margin:0 0 14px 0; font-size:15px; line-height:1.9; color:#666666;">
+                                    <strong>No PDF, No Extra Tab:</strong> the report renders as HTML in a hidden
+                                    frame and the browser's own print dialog opens automatically &mdash; the same
+                                    one you already use for every other web page.
+                                </p>
+                                <span
+                                    style="display:inline-block; background:#f2eefb; border:1px solid #e2dcf3; color:#714bb2; border-radius:20px; padding:6px 12px; font-size:12px; font-weight:700;">
+                                    <i class="fa fa-bolt" style="margin-right:5px;"></i>Zero File Downloads
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(54,197,240,0.1);">
+                                <div style="font-size:28px; color:#36C5F0; margin-bottom:14px;">
+                                    <i class="fa fa-check-square-o"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">
+                                    Per-Report Toggle
+                                </h4>
+                                <p style="margin:0 0 14px 0; font-size:15px; line-height:1.9; color:#666666;">
+                                    <strong>Pick Your Reports:</strong> a Direct Print field is added right next to
+                                    every report's technical name, so you choose exactly which documents skip the
+                                    download and which still behave the standard way.
+                                </p>
+                                <span
+                                    style="display:inline-block; background:#f0faff; border:1px solid #cceeff; color:#36C5F0; border-radius:20px; padding:6px 12px; font-size:12px; font-weight:700;">
+                                    Technical &rarr; Reports
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.05);">
+                                <div style="font-size:28px; color:#2EB67D; margin-bottom:14px;">
+                                    <i class="fa fa-toggle-on"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">
+                                    One-Click Global Setting
+                                </h4>
+                                <p style="margin:0 0 14px 0; font-size:15px; line-height:1.9; color:#666666;">
+                                    <strong>Set It Once:</strong> a single switch in General Settings applies Direct
+                                    Print to every report in the database, including ones added later by other
+                                    modules.
+                                </p>
+                                <span
+                                    style="display:inline-block; background:#e8f5e9; border:1px solid #c8e6c9; color:#2EB67D; border-radius:30px; padding:6px 12px; font-size:12px; font-weight:700;">
+                                    Settings &rarr; General Settings
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.05);">
+                                <div style="font-size:28px; color:#e8916a; margin-bottom:14px;">
+                                    <i class="fa fa-file-text-o"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">
+                                    Works With Any PDF Report
+                                </h4>
+                                <p style="margin:0 0 14px 0; font-size:15px; line-height:1.9; color:#666666;">
+                                    <strong>No Report Rewrites:</strong> invoices, delivery slips, sale orders,
+                                    purchase orders &mdash; any standard <code>ir.actions.report</code> works as-is.
+                                    Nothing to redesign in your QWeb templates.
+                                </p>
+                                <span
+                                    style="display:inline-block; background:#fdf0e8; border:1px solid #f5dcc7; color:#e8916a; border-radius:30px; padding:6px 12px; font-size:12px; font-weight:700;">
+                                    No Template Changes
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.05);">
+                                <div style="font-size:28px; color:#f79ac0; margin-bottom:14px;">
+                                    <i class="fa fa-id-badge"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">
+                                    HR Resume Print, Handled
+                                </h4>
+                                <p style="margin:0 0 14px 0; font-size:15px; line-height:1.9; color:#666666;">
+                                    <strong>Employee CV Wizard Compatible:</strong> the tricky "Print Resume" wizard
+                                    in HR Skills &mdash; which normally forces a raw PDF download &mdash; is
+                                    detected and routed through Direct Print automatically when installed.
+                                </p>
+                                <span
+                                    style="display:inline-block; background:#fdf0f5; border:1px solid #f6d7e5; color:#f79ac0; border-radius:30px; padding:6px 12px; font-size:12px; font-weight:700;">
+                                    hr_skills Compatible
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:24px; background-color:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.05);">
+                                <div style="font-size:28px; color:#36C5F0; margin-bottom:14px;">
+                                    <i class="fa fa-shield"></i>
+                                </div>
+                                <h4 style="margin:0 0 10px 0; font-size:20px; font-weight:700; color:#1f1f1f;">
+                                    Safe Fallback
+                                </h4>
+                                <p style="margin:0 0 14px 0; font-size:15px; line-height:1.9; color:#666666;">
+                                    <strong>Nothing Breaks:</strong> if a report can't be resolved for direct
+                                    printing, Odoo simply falls back to its normal download behaviour instead of
+                                    failing silently.
+                                </p>
+                                <span
+                                    style="display:inline-block; background:#f0faff; border:1px solid #cceeff; color:#36C5F0; border-radius:30px; padding:6px 12px; font-size:12px; font-weight:700;">
+                                    Graceful Fallback
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TECH DETAILS -->
+                <section class="mb-5">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:28px 24px; background:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.05);">
+                                <h3
+                                    style="margin:0 0 18px 0; font-size:26px; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                                    Under the Hood
+                                </h3>
+                                <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:14px;">
+                                    <i class="fa fa-code" style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        <b>HTML Report + Browser Print API</b>: the report is loaded as
+                                        <code>qweb-html</code> inside a hidden iframe, then
+                                        <code>window.print()</code> is called on it &mdash; no server-side PDF
+                                        rendering is triggered at all for a direct print.
+                                    </p>
+                                </div>
+                                <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:14px;">
+                                    <i class="fa fa-plug"
+                                        style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        <b>Registered Report Handler</b>: hooks into Odoo's own
+                                        <code>ir.actions.report handlers</code> registry, so it intercepts print
+                                        actions the same way Odoo's core PDF handler does &mdash; no monkey-patched
+                                        buttons.
+                                    </p>
+                                </div>
+                                <div style="display:flex; align-items:flex-start; gap:12px;">
+                                    <i class="fa fa-database"
+                                        style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        <b>One Config Parameter, One Field</b>: a single
+                                        <code>ir.config_parameter</code> stores the global default and a single
+                                        <code>direct_print</code> boolean field on <code>ir.actions.report</code>
+                                        stores the per-report override &mdash; nothing else touches your data model.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:22px; padding:28px 24px; background:#faf9ff; box-shadow:0 10px 25px rgba(113,75,178,0.05);">
+                                <h3
+                                    style="margin:0 0 18px 0; font-size:26px; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                                    Who It's For
+                                </h3>
+                                <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:14px;">
+                                    <i class="fa fa-truck" style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        Warehouse &amp; retail teams printing delivery slips, labels, or receipts
+                                        many times a day and tired of a downloads folder full of PDFs.
+                                    </p>
+                                </div>
+                                <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:14px;">
+                                    <i class="fa fa-money" style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        Accounting &amp; front-desk staff who print invoices, quotations, or visitor
+                                        passes on demand and just want the print dialog, not a file to manage.
+                                    </p>
+                                </div>
+                                <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:14px;">
+                                    <i class="fa fa-desktop"
+                                        style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        Shared kiosk or POS-adjacent terminals where downloaded PDFs pile up and
+                                        nobody is around to clean them out.
+                                    </p>
+                                </div>
+                                <div style="display:flex; align-items:flex-start; gap:12px;">
+                                    <i class="fa fa-cogs"
+                                        style="font-size:18px; color:#714bb2; margin-top:4px;"></i>
+                                    <p style="margin:0; font-size:15px; line-height:1.8; color:#666666;">
+                                        Implementers who want a lightweight, technical-category module that changes
+                                        print behaviour without touching a single report template.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NAVIGATION GUIDE -->
+                <section class="mb-5">
+                    <div class="text-center mb-4">
+                        <h2
+                            style="margin:0 0 10px 0; font-size:36px; line-height:1; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:2px; border-bottom:2.5px solid #43d5cf;">
+                                Where
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:2px; border-bottom:2.5px solid #ffb733;">
+                                To
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; border-bottom:2.5px solid #f79ac0;">
+                                Find Everything
+                            </span>
+                        </h2>
+                        <p style="margin:0; font-size:16px; line-height:1.8; color:#666666;">
+                            No new menu is added &mdash; Direct Print plugs into screens you already use.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:20px; padding:22px; background-color:#faf9ff;">
+                                <h5 style="margin:0 0 14px 0; font-size:17px; font-weight:700; color:#714bb2;">
+                                    <i class="fa fa-cog" style="margin-right:8px;"></i>Settings &rarr; General Settings
+                                </h5>
+                                <p style="margin:0; font-size:14.5px; color:#333333;">
+                                    A new <b>Direct Print</b> app section with a single toggle: turn instant printing
+                                    on or off for every report in the system at once.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div
+                                style="height:100%; border:1px solid #e2dcf3; border-radius:20px; padding:22px; background-color:#faf9ff;">
+                                <h5 style="margin:0 0 14px 0; font-size:17px; font-weight:700; color:#714bb2;">
+                                    <i class="fa fa-wrench" style="margin-right:8px;"></i>Settings &rarr; Technical &rarr; Reports
+                                </h5>
+                                <p style="margin:0; font-size:14.5px; color:#333333;">
+                                    Open any report action and a <b>Direct Print</b> checkbox now sits right next to
+                                    its Template Name, letting you override the global default per report.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- EXPLORE OTHER APPS -->
+                <section class="mb-5">
+                    <div class="text-center mb-4">
+                        <h2
+                            style="margin:0 0 10px 0; font-size:36px; line-height:1; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:2px; border-bottom:2.5px solid #43d5cf;">
+                                Explore
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:2px; border-bottom:2.5px solid #ffb733;">
+                                More
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; border-bottom:2.5px solid #f79ac0;">
+                                Odoo Apps
+                            </span>
+                        </h2>
+                        <p style="margin:0; font-size:16px; line-height:1.8; color:#666666;">
+                            Explore more powerful modules developed by Micra Digital to enhance your Odoo experience.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <!-- APP -->
+                        <div class="col-md-6 col-lg-4">
+                            <a href="https://apps.odoo.com/apps/modules/18.0/odoo_ai"
+                                style="display:block; text-decoration:none;">
+                                <div
+                                    style="height:100%; border:1px solid #f2d6dc; border-radius:22px; overflow:hidden; background-color:#fffafb;">
+                                    <img alt="Odoo AI Bot" class="img-fluid w-100" src="odooai.png"
+                                        style="border-bottom:1px solid #f2d6dc;">
+                                    <div style="padding:20px;">
+                                        <h4 style="margin:0; font-size:20px; font-weight:600; color:#1f1f1f;">
+                                            Odoo AI Bot
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- APP -->
+                        <div class="col-md-6 col-lg-4">
+                            <a href="https://apps.odoo.com/apps/modules/19.0/pos_stripe_refund"
+                                style="display:block; text-decoration:none;">
+                                <div
+                                    style="height:100%; border:1px solid #f2d6dc; border-radius:22px; overflow:hidden; background-color:#fffafb;">
+                                    <img alt="POS Stripe Refund" class="img-fluid w-100" src="striperefund.png"
+                                        style="border-bottom:1px solid #f2d6dc;">
+                                    <div style="padding:20px;">
+                                        <h4 style="margin:0; font-size:20px; font-weight:600; color:#1f1f1f;">
+                                            POS Stripe Refund
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- APP -->
+                        <div class="col-md-6 col-lg-4">
+                            <a href="https://apps.odoo.com/apps/modules/19.0/pos_stocks_live"
+                                style="display:block; text-decoration:none;">
+                                <div
+                                    style="height:100%; border:1px solid #f2d6dc; border-radius:22px; overflow:hidden; background-color:#fffafb;">
+                                    <img alt="POS Stocks Management" class="img-fluid w-100" src="stocklive.png"
+                                        style="border-bottom:1px solid #f2d6dc;">
+                                    <div style="padding:20px;">
+                                        <h4 style="margin:0; font-size:20px; font-weight:600; color:#1f1f1f;">
+                                            POS Stocks Management
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- APP -->
+                        <div class="col-md-6 col-lg-4">
+                            <a href="https://apps.odoo.com/apps/modules/17.0/pos_stocks_expiry"
+                                style="display:block; text-decoration:none;">
+                                <div
+                                    style="height:100%; border:1px solid #f2d6dc; border-radius:22px; overflow:hidden; background-color:#fffafb;">
+                                    <img alt="POS Stocks Expiry" class="img-fluid w-100" src="stockexpiry.png"
+                                        style="border-bottom:1px solid #f2d6dc;">
+                                    <div style="padding:20px;">
+                                        <h4 style="margin:0; font-size:20px; font-weight:600; color:#1f1f1f;">
+                                            POS Stocks Expiry
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- APP -->
+                        <div class="col-md-6 col-lg-4">
+                            <a href="https://apps.odoo.com/apps/modules/19.0/machine_scheduling_advanced"
+                                style="display:block; text-decoration:none;">
+                                <div
+                                    style="height:100%; border:1px solid #f2d6dc; border-radius:22px; overflow:hidden; background-color:#fffafb;">
+                                    <img alt="Advanced Manufacturing Scheduling" class="img-fluid w-100"
+                                        src="machines.png" style="border-bottom:1px solid #f2d6dc;">
+                                    <div style="padding:20px;">
+                                        <h4 style="margin:0; font-size:20px; font-weight:600; color:#1f1f1f;">
+                                            Advanced Manufacturing Scheduling
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- APP -->
+                        <div class="col-md-6 col-lg-4">
+                            <a href="https://apps.odoo.com/apps/modules/18.0/Odoo_rest_api"
+                                style="display:block; text-decoration:none;">
+                                <div
+                                    style="height:100%; border:1px solid #f2d6dc; border-radius:22px; overflow:hidden; background-color:#fffafb;">
+                                    <img alt="Odoo Dynamic REST API" class="img-fluid w-100" src="odooapi.png"
+                                        style="border-bottom:1px solid #f2d6dc;">
+                                    <div style="padding:20px;">
+                                        <h4 style="margin:0; font-size:20px; font-weight:600; color:#1f1f1f;">
+                                            Odoo Dynamic REST API
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ -->
+                <section class="mb-5">
+                    <div class="text-center mb-4">
+                        <h2
+                            style="margin:0 0 10px 0; font-size:36px; line-height:1; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:2px; border-bottom:2.5px solid #f79ac0;">
+                                Frequently
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:2px; border-bottom:2.5px solid #ffb733;">
+                                Asked
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; border-bottom:2.5px solid #43d5cf;">
+                                Questions
+                            </span>
+                        </h2>
+                        <p style="margin:0; font-size:16px; line-height:1.8; color:#666666;">
+                            Common questions buyers usually ask before installation.
+                        </p>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:18px; padding:20px; background-color:#faf9ff; box-shadow:0 8px 22px rgba(113,75,178,0.04);">
+                                <h5 style="margin:0 0 8px 0; font-size:18px; font-weight:700; color:#1f1f1f;">
+                                    Which Odoo apps does this depend on?</h5>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    Only Odoo's core <code>base</code> and <code>web</code> modules. It works
+                                    alongside any app that uses standard <code>ir.actions.report</code> print
+                                    actions &mdash; Invoicing, Sales, Inventory, HR, and more.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:18px; padding:20px; background-color:#faf9ff; box-shadow:0 8px 22px rgba(113,75,178,0.04);">
+                                <h5 style="margin:0 0 8px 0; font-size:18px; font-weight:700; color:#1f1f1f;">
+                                    Does this remove the option to download a PDF?</h5>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    No. Direct Print only changes what happens when a user clicks the report's
+                                    Print button. You can leave any individual report's Direct Print field unticked
+                                    to keep its normal PDF download behaviour, and PDF export from other menus is
+                                    unaffected.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:18px; padding:20px; background-color:#faf9ff; box-shadow:0 8px 22px rgba(113,75,178,0.04);">
+                                <h5 style="margin:0 0 8px 0; font-size:18px; font-weight:700; color:#1f1f1f;">
+                                    What happens if the browser blocks the print dialog?</h5>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    If the browser can't open the print window (for example, strict pop-up
+                                    settings), the user gets a clear on-screen notification instead of a silent
+                                    failure, so they know to check their browser's print permissions for the site.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:18px; padding:20px; background-color:#faf9ff; box-shadow:0 8px 22px rgba(113,75,178,0.04);">
+                                <h5 style="margin:0 0 8px 0; font-size:18px; font-weight:700; color:#1f1f1f;">
+                                    Can I control this per report instead of globally?</h5>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    Yes. Every report action gets its own Direct Print checkbox under Settings &rarr;
+                                    Technical &rarr; Reports, which overrides the global default from General
+                                    Settings.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:18px; padding:20px; background-color:#faf9ff; box-shadow:0 8px 22px rgba(113,75,178,0.04);">
+                                <h5 style="margin:0 0 8px 0; font-size:18px; font-weight:700; color:#1f1f1f;">
+                                    Which Odoo versions does this support?</h5>
+                                <p style="margin:0; font-size:15px; line-height:1.9; color:#666666;">
+                                    Direct Print Report is available for Odoo 17, 18, and 19. It registers into
+                                    Odoo's own report-handler system rather than overriding core print buttons,
+                                    so behaviour is consistent across all three versions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FINAL CTA -->
+                <section class="mt-5 mb-4"
+                    style="background:#ffffff; border:1px solid #e9e9e9; border-radius:24px; padding:40px 28px; box-shadow:0 10px 25px rgba(0,0,0,0.04);">
+                    <div class="container-fluid">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-7">
+                                <div class="d-flex align-items-center flex-wrap mb-3" style="gap:14px;">
+                                    <img alt="Micra Digital Logo" src="logoo.png"
+                                        style="height:60px; width:60px; object-fit:contain; border-radius:14px;">
+                                    <span
+                                        style="font-size:13px; font-weight:600; color:#e85365; border:1px solid #f2d6dc; padding:6px 14px; border-radius:30px; background:#fff4f6;">
+                                        MICRA DIGITAL
+                                    </span>
+                                </div>
+                                <h2
+                                    style="margin:0 0 14px 0; font-size:34px; font-weight:700; color:#111111; font-family:'Kalam', cursive; line-height:1;">
+                                    <span
+                                        style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:3px solid #f79ac0;">
+                                        Ready
+                                    </span>
+                                    <span
+                                        style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:3px solid #43d5cf;">
+                                        to Skip
+                                    </span>
+                                    <span
+                                        style="display:inline-block; padding:0 10px 7px 10px; border-bottom:3px solid #ffb733;">
+                                        the Download?
+                                    </span>
+                                </h2>
+                                <p style="font-size:16px; line-height:1.9; color:#666666; margin:0 0 22px 0;">
+                                    Install Direct Print Report and let every click of Print go straight to the
+                                    dialog your team already knows. Questions before you buy, or need help
+                                    configuring which reports to enable? Reach out below.
+                                </p>
+                                <div class="d-flex flex-wrap" style="gap:14px;">
+                                    <a href="mailto:hello@micra.digital"
+                                        style="background:#714bb2; color:#ffffff; padding:13px 24px; border-radius:30px; border:1px solid #714bb2; text-decoration:none; font-weight:600; display:inline-block;">
+                                        <i class="fa fa-envelope" style="margin-right:6px;"></i>
+                                        Contact Us
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <div
+                                            style="background:#fafafa; border:1px solid #eeeeee; border-radius:16px; padding:20px; text-align:center;">
+                                            <h5
+                                                style="font-size:18px; font-weight:700; margin:0 0 6px 0; color:#222222;">
+                                                Company
+                                            </h5>
+                                            <p style="margin:0; color:#666666; font-size:15px;">Micra Digital
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div
+                                            style="background:#fafafa; border:1px solid #eeeeee; border-radius:16px; padding:20px; text-align:center; height:100%;">
+                                            <h5
+                                                style="font-size:16px; font-weight:700; margin:0 0 6px 0; color:#222222;">
+                                                Website
+                                            </h5>
+                                            <p style="margin:0; color:#666666; font-size:14px; word-break:break-word;">
+                                                www.micra.digital
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div
+                                            style="background:#fafafa; border:1px solid #eeeeee; border-radius:16px; padding:20px; text-align:center; height:100%;">
+                                            <h5
+                                                style="font-size:16px; font-weight:700; margin:0 0 6px 0; color:#222222;">
+                                                Email
+                                            </h5>
+                                            <p style="margin:0; color:#666666; font-size:13px; word-break:break-word;">
+                                                hello@micra.digital
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:18px; text-align:center; font-size:15px; color:#666666;">
+                                    Need help?
+                                    <a href="mailto:hello@micra.digital"
+                                        style="color:#e85365; text-decoration:none; font-weight:600;">
+                                        Contact our team
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SCREENSHOT TAB -->
+            <div aria-labelledby="screenshot-tab" class="tab-pane fade" id="screenshot-pane" role="tabpanel">
+                <section class="mb-4">
+                    <div class="text-center">
+                        <h2
+                            style="margin:0 0 10px 0; font-size:36px; line-height:1; font-weight:700; color:#111111; font-family:'Kalam', cursive;">
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:3px; border-bottom:4px solid #ffba2f;">
+                                App
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; margin-right:3px; border-bottom:4px solid #43d5cf;">
+                                Screenshots
+                            </span>
+                            <span
+                                style="display:inline-block; padding:0 10px 7px 10px; border-bottom:3px solid #f79ac0;">
+                                Preview
+                            </span>
+                        </h2>
+                    </div>
+                </section>
+
+                <div class="mb-5">
+                    <div class="row g-4">
+                        <!-- 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:22px; overflow:hidden; background-color:#faf9ff; box-shadow:0 10px 30px rgba(113,75,178,0.06); height:100%;">
+                                <img class="img-fluid w-100" src="screenshots/settings-toggle.png"
+                                    style="background:#fff; border-bottom:1px solid #e2dcf3;">
+                                <div style="padding:18px;">
+                                    <h4 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#1f1f1f;">
+                                        Global Direct Print Setting
+                                    </h4>
+                                    <p style="margin:0; font-size:14px; line-height:1.7; color:#666666;">
+                                        A dedicated Direct Print section in General Settings with one switch that
+                                        applies to every report in the system.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:22px; overflow:hidden; background-color:#faf9ff; box-shadow:0 10px 30px rgba(113,75,178,0.06); height:100%;">
+                                <img class="img-fluid w-100" src="screenshots/technical-reports-menu.png"
+                                    style="background:#fff; border-bottom:1px solid #e2dcf3;">
+                                <div style="padding:18px;">
+                                    <h4 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#1f1f1f;">
+                                        Technical &rarr; Reports
+                                    </h4>
+                                    <p style="margin:0; font-size:14px; line-height:1.7; color:#666666;">
+                                        Every report action in the database, ready to be opened and configured for
+                                        Direct Print individually.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:22px; overflow:hidden; background-color:#faf9ff; box-shadow:0 10px 30px rgba(113,75,178,0.06); height:100%;">
+                                <img class="img-fluid w-100" src="screenshots/report-action-direct-print-field.png"
+                                    style="background:#fff; border-bottom:1px solid #e2dcf3;">
+                                <div style="padding:18px;">
+                                    <h4 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#1f1f1f;">
+                                        Per-Report Direct Print Field
+                                    </h4>
+                                    <p style="margin:0; font-size:14px; line-height:1.7; color:#666666;">
+                                        The Invoice PDF report action with its own Direct Print checkbox sitting
+                                        right next to the Template Name field.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:22px; overflow:hidden; background-color:#faf9ff; box-shadow:0 10px 30px rgba(113,75,178,0.06); height:100%;">
+                                <img class="img-fluid w-100" src="screenshots/invoice-print-button.png"
+                                    style="background:#fff; border-bottom:1px solid #e2dcf3;">
+                                <div style="padding:18px;">
+                                    <h4 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#1f1f1f;">
+                                        Same Print Button You Already Use
+                                    </h4>
+                                    <p style="margin:0; font-size:14px; line-height:1.7; color:#666666;">
+                                        No new buttons to learn &mdash; the standard Print action on a posted
+                                        invoice is all it takes to trigger Direct Print.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div
+                                style="border:1px solid #e2dcf3; border-radius:22px; overflow:hidden; background-color:#faf9ff; box-shadow:0 10px 30px rgba(113,75,178,0.06); height:100%;">
+                                <img class="img-fluid w-100" src="screenshots/browser-print-dialog.png"
+                                    style="background:#fff; border-bottom:1px solid #e2dcf3;">
+                                <div style="padding:18px;">
+                                    <h4 style="margin:0 0 8px 0; font-size:17px; font-weight:700; color:#1f1f1f;">
+                                        Straight to the Print Dialog
+                                    </h4>
+                                    <p style="margin:0; font-size:14px; line-height:1.7; color:#666666;">
+                                        The moment Print is clicked, the browser's native print dialog opens with
+                                        the invoice already loaded &mdash; no PDF ever hit the downloads folder.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FINAL CTA (screenshots tab) -->
+                <section class="mt-5 mb-4"
+                    style="background:#ffffff; border:1px solid #e9e9e9; border-radius:24px; padding:40px 28px; box-shadow:0 10px 25px rgba(0,0,0,0.04);">
+                    <div class="container-fluid">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-7">
+                                <h2
+                                    style="margin:0 0 14px 0; font-size:34px; font-weight:700; color:#111111; font-family:'Kalam', cursive; line-height:1;">
+                                    <span
+                                        style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:3px solid #f79ac0;">
+                                        Ready
+                                    </span>
+                                    <span
+                                        style="display:inline-block; padding:0 10px 7px 10px; margin-right:4px; border-bottom:3px solid #43d5cf;">
+                                        to Skip
+                                    </span>
+                                    <span
+                                        style="display:inline-block; padding:0 10px 7px 10px; border-bottom:3px solid #ffb733;">
+                                        the Download?
+                                    </span>
+                                </h2>
+                                <p style="font-size:16px; line-height:1.9; color:#666666; margin:0 0 22px 0;">
+                                    Install Direct Print Report and let every click of Print go straight to the
+                                    dialog. Questions before you buy, or need setup help?
+                                </p>
+                                <div class="d-flex flex-wrap" style="gap:14px;">
+                                    <a href="mailto:hello@micra.digital"
+                                        style="background:#714bb2; color:#ffffff; padding:13px 24px; border-radius:30px; border:1px solid #714bb2; text-decoration:none; font-weight:600; display:inline-block;">
+                                        <i class="fa fa-envelope" style="margin-right:6px;"></i>
+                                        Contact Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
