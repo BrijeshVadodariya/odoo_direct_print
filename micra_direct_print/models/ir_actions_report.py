@@ -12,7 +12,7 @@ class IrActionsReport(models.Model):
         val = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("direct_print_report.direct_print_enabled", "True")
+            .get_param("micra_direct_print.direct_print_enabled", "True")
         )
         return str(val).strip().lower() not in ("false", "0", "no")
 
@@ -57,7 +57,7 @@ class IrActionsReport(models.Model):
             val = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("direct_print_report.direct_print_enabled", "True")
+                .get_param("micra_direct_print.direct_print_enabled", "True")
             )
             result = str(val).strip().lower() not in ("false", "0", "no")
 
