@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_direct_print" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.direct.print</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Direct Print" string="Direct Print" name="direct_print_report" logo="/direct_print_report/static/description/icon.png">
+                    <block title="Direct Print Configuration" name="direct_print_configuration">
+                        <setting id="direct_print_setting" help="All Reports Of Direct Print Automated">
+                            <field name="direct_print_enabled"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
